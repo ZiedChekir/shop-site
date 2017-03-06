@@ -1,0 +1,33 @@
+
+<div class="row">
+
+  {{# each Products}}
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img class="img-responsive" src= "{{this.imgpath}}" alt="call of duty">
+      <div class="caption">
+        <h3>{{this.title}}</h3>
+        <p>{{this.description}}</p>
+
+        <div class="clearfix" > <div class="price pull-left">
+          {{this.price}}$
+        </div> <div class="pull-right buy-sec"><a href="#" class="btn btn-default btn-success " role="button">Buy</a><a href="#" class="btn btn-default" role="button">More</a></div></div>
+      </div>
+    </div>
+  </div>
+  {{/each }}
+  {{!-- <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img class="img-responsive" src="http://cdn.edgecast.steamstatic.com/steam/apps/311210/header.jpg?t=1479852239" alt="call of duty">
+      <div class="caption">
+        <h3>Call Of Duty BO3</h3>
+        <p>sqdjkqsdqsldqsd qdjlsdjqlsd jqlsdhlqs d</p>
+
+        <div class="clearfix" >
+          <div class="price pull-left">30$</div>
+          <a href="#" class="btn btn-default btn-success pull-right" role="button">Buy</a></div>
+      </div>
+    </div>
+  </div> --}}
+
+</div>

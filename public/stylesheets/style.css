@@ -1,0 +1,11 @@
+.thumbnail img{
+max-height: 180px;
+
+}
+.thumbnail {
+  min-height: 100px;
+}
+.buy-sec a{
+  width: 70px;
+  margin-right: 8px;
+}
