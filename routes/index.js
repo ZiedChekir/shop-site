@@ -2,18 +2,19 @@ var express = require('express');
 var router = express.Router();
 var csrf = require('csurf');
 var passport = require('passport');
-// var csrfProtection = csrf();
-var user = require('../models/user');
-// var products = require('../models/product');
-//
-// // router.use(csrfProtection);
-//
-// /* GET home page. */
-// router.get('/', function(req, res, next) {
-//   products.find(function(err, doc){
-//     res.render('shop/index', { Products: doc });
-//   });
-// });
+var csrfProtection = csrf();
+
+
+var products = require('../models/product');
+
+router.use(csrfProtection);
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  products.find(function(err, doc){
+    res.render('shop/index', { Products: doc });
+  });
+});
 
 
 
@@ -22,8 +23,8 @@ var user = require('../models/user');
 //============= Display Signup PAge with Flash messages as a Var
 router.get('/signup', function(req, res, next) {
 
-    // res.render('user/signup',{csrfToken:req.csrfToken(),messages:req.flash('signupMessage')});
-    res.render('user/signup',{messages:req.flash('signupMessage')});
+    res.render('user/signup',{csrfToken:req.csrfToken(),messages:req.flash('signupMessage')});
+
 });
 
 router.get('/login', function(req, res, next) {
@@ -56,7 +57,7 @@ if (req.isAuthenticated())
 res.redirect('/');
 }
 
-router.post('/signup', passport.authenticate('local-signup', {
+router.post('/signup', passport.authenticate('local.signup', {
 successRedirect : '/profile', // redirect to the secure profile section
 failureRedirect : '/signup', // redirect back to the signup page if there is an error
 failureFlash : true // allow flash messages

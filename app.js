@@ -30,7 +30,7 @@ app.use(session({secret:'mysuperscret',resave:false,saveUninitialized:false}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-require('./config/passport')(passport);
+require('./config/passport');
 app.use(express.static(path.join(__dirname, 'public')));
 
 
